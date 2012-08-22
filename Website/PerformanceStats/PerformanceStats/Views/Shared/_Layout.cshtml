@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    
+    <script src="@Url.Content("~/Scripts/jQuery/jquery-1.6.1.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.core.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.context.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.annotate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.tooltips.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.zoom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.common.resizing.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/RGraph/libraries/RGraph.line.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ConfigureGraphs.js")" type="text/javascript"></script>
+
+    <link rel="Stylesheet" href="@Href("~/Content/styles.css")" type="text/css"/>
+</head>
+
+<body>
+    @RenderBody()
+</body>
+</html>

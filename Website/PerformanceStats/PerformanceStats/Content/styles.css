@@ -1,0 +1,27 @@
+h1
+{
+    margin-bottom:10px;
+    margin-top:0px;
+    text-align: center;
+}    
+.canvas-container
+{
+    height: 300px;
+}
+
+.canvas-heartbeat
+{
+    width: 600px;
+    height: 300px;
+}
+
+.canvas-daily
+{
+    width: 400px;
+    height: 300px;
+}
+
+.main-container
+{
+    text-align: center;
+}

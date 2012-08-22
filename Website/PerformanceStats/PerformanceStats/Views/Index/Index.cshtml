@@ -1,0 +1,13 @@
+﻿@model PerformanceStats.Models.GraphsViewModel
+@{
+    ViewBag.Title = "Performance Stats";
+}
+
+<h1>Performance Statistics At @DateTime.Now</h1>
+
+<div class="main-container">
+@foreach(var graph in Model.Graphs)
+{
+    @Html.Partial("_TestResults", graph)
+}
+</div>

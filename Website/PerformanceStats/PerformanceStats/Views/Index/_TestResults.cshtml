@@ -1,0 +1,29 @@
+﻿@model PerformanceStats.Models.GraphViewModel
+@if (Model.ContainsData())
+{
+    var heartBeatId = Model.TestId + ".heartBeat";
+    var dailyId = Model.TestId + ".daily";
+      
+    <div class="canvas-container">
+        <canvas class="canvas-heartbeat" id="@heartBeatId" width="600" height="300">[Please wait...]</canvas>
+        <canvas class="canvas-daily" id="@dailyId" width="400" height="300">[Please wait...]</canvas>
+    </div>
+    
+    <script type="text/javascript">
+        var @Html.Raw(Model.TestId) = {
+            yMax: 5,
+            dailyData: [@String.Join(",", Model.Daily.Select(x => "[" + String.Join(",", x.Results.Select(y => y.AverageTimeSeconds).ToList()) + "]"))],
+            heartBeatData: [@String.Join(",", Model.HeartBeat.Select(x => "[" + String.Join(",", x.Results.Select(y => y.AverageTimeSeconds).ToList()) + "]"))],
+            chartKey: [@Html.Raw(String.Join(",", Model.Daily.Select(x => "'" + x.Url + "'")))],
+            chartLabels: [@Html.Raw(String.Join(",", Model.HeartBeat.First().Results.Select(x => x.RunDate.Day)))]
+        };
+        $(document).ready(function () {
+            configureGraph('Daily Averages - @Model.TestId', '@dailyId', @Html.Raw(Model.TestId+".dailyData"), @Html.Raw(Model.TestId+".chartKey"), [], @Html.Raw(Model.TestId+".yMax"));
+            configureGraph('Heartbeat Data - @Model.TestId', '@heartBeatId', @Html.Raw(Model.TestId+".heartBeatData"), @Html.Raw(Model.TestId+".chartKey"), @Html.Raw(Model.TestId+".chartLabels"), @Html.Raw(Model.TestId+".yMax"));
+        });
+    </script>
+}
+else
+{
+    <div>@Model.TestId contains no data</div>
+}
